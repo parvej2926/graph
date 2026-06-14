@@ -1,0 +1,2 @@
+Dynamic programming is useful for optimization problems.
+Graphs are important in computer science.

@@ -1,0 +1,13 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "C/C++ Runner: Debug Session",
+      "type": "lldb",
+      "request": "launch",
+      "args": [],
+      "cwd": "/Users/parvezmusarrof/Documents/graph",
+      "program": "/Users/parvezmusarrof/Documents/graph/build/Debug/outDebug"
+    }
+  ]
+}

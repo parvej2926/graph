@@ -1,0 +1,21 @@
+📚 Smart Digital Library & Research Paper Management System
+
+A console-based C++ project where users can:
+
+Store books/research papers
+Search titles/authors
+Recommend similar papers
+Detect plagiarism/similarity
+Build citation networks
+
+This project is strong for university presentations because it combines multiple DSA concepts in a realistic system.
+
+
+Requirement	Where It Is Used
+Text Input/Output	            Store books/users/history in .txt files
+Sorting	                        Sort books by title, popularity, rating
+Searching	                    Binary Search / Linear Search
+LCS	                            Similarity between documents
+Pattern Matching	            Keyword search inside text
+Hashing	                        Fast username/book lookup
+Graph	                        Citation/recommendation network

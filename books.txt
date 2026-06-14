@@ -1,0 +1,10 @@
+101|Data Structures and Algorithms|Mark Weiss|2018|4.5
+102|Introduction to Algorithms|CLRS|2020|4.9
+103|Graph Theory Basics|Bondy|2017|4.2
+104|Machine Learning Fundamentals|Andrew Ng|2021|4.8
+105|Competitive Programming|Steven Halim|2019|4.7
+106|Artificial Intelligence|Stuart Russell|2022|4.6
+107|Database Systems|Korth|2016|4.1
+108|Operating System Concepts|Silberschatz|2015|4.3
+109|Computer Networks|Tanenbaum|2018|4.4
+110|Theory of Computation|Michael Sipser|2020|4.5

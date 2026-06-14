@@ -1,0 +1,10 @@
+101|This book explains stacks queues trees graphs and sorting algorithms
+102|Advanced algorithm design dynamic programming greedy and graph theory
+103|Complete introduction to graph traversal bfs dfs shortest path
+104|Machine learning neural networks and deep learning concepts
+105|Competitive programming techniques graph dp binary search and recursion
+106|Artificial intelligence search systems and robotics
+107|SQL database normalization transactions and indexing
+108|Process scheduling memory management deadlock synchronization
+109|Network protocols routing tcp ip and security
+110|Automata theory compiler and formal languages
