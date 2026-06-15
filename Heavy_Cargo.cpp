@@ -1,4 +1,11 @@
 #include <iostream>
+#include <vector>
+#include <map>
+#include <string>
+#include <queue>
+#include <utility>
+#include <algorithm>
+#include <climits>
 using namespace std;
 
 int main() {
@@ -6,50 +13,52 @@ int main() {
     cin.tie(nullptr);
 
     int n, r;
-    int tc = 1;
+    int scenario = 0;
 
     while (cin >> n >> r && (n || r)) {
-        unordered_map<string, int> mp;
-        int id = 0;
+        scenario++;
 
-        vector<vector<pair<int,int>>> adj(n * 2); // safe size
+        map<string, int> cityId;
+        int counter = 0;
+        vector<vector<pair<int,int>>> graph(n);
 
-        auto getId = [&](string s) {
-            if (mp.count(s)) return mp[s];
-            return mp[s] = id++;
+        auto getId = [&](const string& name) -> int {
+            auto it = cityId.find(name);
+            if (it == cityId.end()) {
+                cityId[name] = counter++;
+                return counter - 1;
+            }
+            return it->second;
         };
 
         for (int i = 0; i < r; i++) {
-            string u, v;
+            string a, b;
             int w;
-            cin >> u >> v >> w;
-            int a = getId(u);
-            int b = getId(v);
-
-            adj[a].push_back({b, w});
-            adj[b].push_back({a, w});
+            cin >> a >> b >> w;
+            int u = getId(a), v = getId(b);
+            graph[u].push_back({v, w});
+            graph[v].push_back({u, w});
         }
 
-        string s, t;
-        cin >> s >> t;
+        string srcName, dstName;
+        cin >> srcName >> dstName;
+        int src = getId(srcName), dst = getId(dstName);
 
-        int src = getId(s);
-        int dst = getId(t);
-
-        vector<int> best(id, 0);
-
-        priority_queue<pair<int,int>> pq;
-        pq.push({INT_MAX, src});
+        // Modified Dijkstra: maximize minimum edge weight along path
+        vector<int> best(n, -1);
         best[src] = INT_MAX;
 
+        // Max-heap: {bottleneck_capacity, node}
+        priority_queue<pair<int,int>> pq;
+        pq.push({best[src], src});
+
         while (!pq.empty()) {
-            auto [cap, u] = pq.top();
-            pq.pop();
+            auto [cap, u] = pq.top(); pq.pop();
 
+            if (cap < best[u]) continue;  // stale entry
             if (u == dst) break;
-            if (cap < best[u]) continue;
 
-            for (auto [v, w] : adj[u]) {
+            for (auto [v, w] : graph[u]) {
                 int newCap = min(cap, w);
                 if (newCap > best[v]) {
                     best[v] = newCap;
@@ -58,7 +67,7 @@ int main() {
             }
         }
 
-        cout << "Scenario #" << tc++ << "\n";
+        cout << "Scenario #" << scenario << "\n";
         cout << best[dst] << " tons\n";
     }
 
