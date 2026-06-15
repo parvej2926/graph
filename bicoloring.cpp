@@ -41,7 +41,6 @@ int main() {
                 }
                 // if adjacent nodes have same color
                 else if (color[next] == color[node]) {
-
                     bipartite = false;
                     break;
                 }
